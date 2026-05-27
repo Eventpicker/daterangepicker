@@ -626,8 +626,8 @@
                             hour = 0;
                     }
                 }
-                this.leftCalendar.month.hour(hour).minute(minute).second(second);
-                this.rightCalendar.month.hour(hour).minute(minute).second(second);
+                this.leftCalendar.month = this.leftCalendar.month.hour(hour).minute(minute).second(second);
+                this.rightCalendar.month = this.rightCalendar.month.hour(hour).minute(minute).second(second);
             }
 
             this.renderCalendar('left');
@@ -1505,11 +1505,11 @@
             }
 
             if (isLeft) {
-                this.leftCalendar.month.month(month).year(year);
+                this.leftCalendar.month = this.leftCalendar.month.month(month).year(year);
                 if (this.linkedCalendars)
                     this.rightCalendar.month = this.leftCalendar.month.add(1, 'month');
             } else {
-                this.rightCalendar.month.month(month).year(year);
+                this.rightCalendar.month = this.rightCalendar.month.month(month).year(year);
                 if (this.linkedCalendars)
                     this.leftCalendar.month = this.rightCalendar.month.subtract(1, 'month');
             }
